@@ -1,0 +1,59 @@
+import java.util.Scanner;
+
+interface Balance {
+    void balanceEnquiry();
+}
+
+interface Deposit {
+    void deposit(int amount);
+}
+
+class Bank {
+    int balance = 10000;
+}
+
+class Account extends Bank {
+    public void debit(int amount) {
+        if (amount <= balance) {
+            balance = balance - amount;
+            System.out.println("Debited Amount : Rs " + amount);
+        } else {
+            System.out.println("Insufficient Balance");
+        }
+    }
+}
+
+class Customer extends Account implements Balance, Deposit {
+    public void balanceEnquiry() {
+        System.out.println("Current Balance : Rs " + balance);
+    }
+
+    public void deposit(int amount) {
+        balance = balance + amount;
+        System.out.println("Deposited Amount : Rs " + amount);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Customer c = new Customer();
+
+        System.out.println("Initial Balance");
+        c.balanceEnquiry();
+
+        System.out.print("Enter Deposit Amount: ");
+        int deposit = sc.nextInt();
+        c.deposit(deposit);
+
+        c.balanceEnquiry();
+
+        System.out.print("Enter Debit Amount: ");
+        int debit = sc.nextInt();
+        c.debit(debit);
+
+        c.balanceEnquiry();
+
+        sc.close();
+    }
+}
