@@ -1,0 +1,25 @@
+class Family {
+    String father = "Sekhar";
+    String mother = "Valli";
+    public void parents(){
+        System.out.println("Father Name : " + father);
+        System.out.println("Mother Name : " + mother); 
+    }
+}
+class Children extends Family {
+    String sister = "Shreya";
+    String brother = "Krishna";
+    String myName = "Shreya";
+    public void ChildrenDetails() {
+        System.out.println("Sister Name : " + sister);
+        System.out.println("Brother Name : " + brother);
+        System.out.println("My Name : " + myName);
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Children child = new Children();
+        child.parents();
+        child.ChildrenDetails();
+    }
+}
