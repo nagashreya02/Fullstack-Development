@@ -24,3 +24,24 @@ public class Operators {
         System.out.println("x %= 3 : " + x);
     }
 }
+
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+   
+    System.out.print("Enter first number: ");
+    int a = sc.nextInt();
+    System.out.print("Enter second number: ");
+    int b = sc.nextInt();
+    
+    if (a + b > 50) {
+        System.out.println("Sum is greater than 50");
+    } else {
+       System.out.println("Sum is less than or equal to 50"); 
+    }
+    sc.close();
+    }
+}
